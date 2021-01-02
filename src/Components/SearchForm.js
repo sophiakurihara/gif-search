@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class SearchForm extends Component {
-  
-  state = {
-    searchText: ''
+function SearchForm(props) {
+
+  const onSearchChange = e => {
+  //  Update state
   }
   
-  onSearchChange = e => {
-    this.setState({ searchText: e.target.value });
-  }
-  
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.query.value);
     e.currentTarget.reset();
   }
-  
-  render() {  
+
     return (
       <form className="search-form" onSubmit={this.handleSubmit} >
         <label className="is-hidden" htmlFor="search">Search</label>
@@ -28,5 +22,6 @@ export default class SearchForm extends Component {
         <button type="submit" id="submit" className="search-button"><i className="material-icons icn-search">search</i></button>
       </form>      
     );
-  }
 }
+
+export default SearchForm;
