@@ -18,7 +18,7 @@ function App() {
     }, [query]);
 
     return (
-      <React.Fragment>
+      <>
         <div className="main-header">
           <div className="inner">
             <h1 className="main-title">GifSearch</h1>
@@ -28,7 +28,7 @@ function App() {
         <div className="main-content">
             <GifList data={data} />
         </div>
-      </React.Fragment>
+      </>
     );
 }
 
