@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function SearchForm(props) {
 
-  const onSearchChange = e => {
-  //  Update state
+  const [searchText, setSearchText] = useState('');
+
+  const onSearchChange = (e) => {
+    setSearchText(e.target.value);
   }
   
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    props.onSearch(searchText);
     e.currentTarget.reset();
   }
 
     return (
-      <form className="search-form" onSubmit={this.handleSubmit} >
+      <form className="search-form" onSubmit={handleSubmit} >
         <label className="is-hidden" htmlFor="search">Search</label>
         <input type="search" 
-               onChange={this.onSearchChange}
+               onChange={onSearchChange}
                name="search"
-               ref={(input) => this.query = input}
                placeholder="Search..." />
         <button type="submit" id="submit" className="search-button"><i className="material-icons icn-search">search</i></button>
       </form>      
